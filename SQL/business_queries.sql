@@ -105,9 +105,9 @@ SELECT
     ROW_NUMBER() OVER (ORDER BY purchase_amount DESC) AS row_num
 FROM customer_purchases;
 
--- ==========================================
+
 -- Query 43 : Dense Rank
--- ==========================================
+
 
 SELECT
     customer_id,
