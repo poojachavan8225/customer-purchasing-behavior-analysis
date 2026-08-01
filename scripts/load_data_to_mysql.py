@@ -2,9 +2,9 @@ import os
 import pandas as pd
 from sqlalchemy import create_engine
 
-# ==========================================
+
 # MySQL Connection
-# ==========================================
+
 
 username = "root"
 password = "password"
@@ -15,9 +15,9 @@ engine = create_engine(
     f"mysql+pymysql://{username}:{password}@{host}/{database}"
 )
 
-# ==========================================
+
 # Read Processed CSV
-# ==========================================
+
 
 # Current script folder
 current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -41,10 +41,8 @@ print(f"Rows    : {df.shape[0]}")
 print(f"Columns : {df.shape[1]}")
 print("=" * 50)
 
-# ==========================================
-# Upload Data to MySQL
-# ==========================================
 
+# Upload Data to MySQL
 df.to_sql(
     name="customer_purchases",
     con=engine,
@@ -52,6 +50,6 @@ df.to_sql(
     index=False
 )
 
-print("✅ Data Uploaded Successfully!")
+print("Data Uploaded Successfully!")
 print("Table Name : customer_purchases")
 print("=" * 50)
